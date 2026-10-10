@@ -1,0 +1,61 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+
+            System.out.println("\nPayment Method:");
+            System.out.println("1. Card");
+            System.out.println("2. UPI");
+            System.out.println("0. Exit");
+            System.out.print("Enter choice: ");
+
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            if (choice == 0) {
+                System.out.println("Thank you!");
+                break;
+            }
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter customer name: ");
+                    String cardName = sc.nextLine();
+
+                    System.out.print("Enter amount: ");
+                    double cardAmount = sc.nextDouble();
+                    sc.nextLine();
+
+                    CardPayment c = new CardPayment(cardName);
+                    c.display();
+                    c.processpayment(cardAmount);
+                    break;
+
+                case 2:
+                    System.out.print("Enter customer name: ");
+                    String upiName = sc.nextLine();
+
+                    System.out.print("Enter amount: ");
+                    double upiAmount = sc.nextDouble();
+                    sc.nextLine();
+
+                    upi u = new upi(upiName);
+                    u.display();
+                    u.processpayment(upiAmount);
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+
+        sc.close();
+    }
+}
