@@ -4,7 +4,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        payment p  = new upi("user 1"); //polymorphism payment abstract class accessed by using p upi() becoz it is another ovveride classs
+        p.pay(200);
+        p.display();
+        payment p1 = new CardPayment("user 2");
+        p1.pay(300);
+        p1.display();
+        
         Scanner sc = new Scanner(System.in);
 
         while (true) {
